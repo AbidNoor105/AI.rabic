@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Translate</title>
+</head>
+<body>
+    <h1>Translate Arabic <-> English</h1>
+    <textarea id="sourceText" placeholder="Enter text"></textarea>
+    <button onclick="translateText()">Translate</button>
+    <p id="translatedText"></p>
+
+    <script>
+        function translateText() {
+            const sourceText = document.getElementById('sourceText').value;
+            const targetLanguage = 'en'; // Change to 'ar' for English to Arabic
+
+            const url = `https://translation.googleapis.com/language/translate/v2?key=YOUR_API_KEY`;
+            const data = {
+                q: sourceText,
+                target: targetLanguage
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.data && data.data.translations) {
+                    document.getElementById('translatedText').innerText = data.data.translations[0].translatedText;
+                } else {
+                    document.getElementById('translatedText').innerText = 'Error in translation';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('translatedText').innerText = 'Translation failed';
+            });
+        }
+    </script>
+</body>
+</html>

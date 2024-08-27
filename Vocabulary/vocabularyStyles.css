@@ -1,0 +1,390 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
+    background: linear-gradient(to bottom, black, #63d297); /* Updated background */
+    overflow: scroll; 
+}
+
+body {
+    padding-top: 60px; /* Adjust based on header height */
+}
+
+
+.main-title {
+    position: absolute; /* Keeps the title from affecting layout */
+    top: 0;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 72px;
+    margin: 10px 0;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+}
+
+
+button {
+    padding: 10px;
+    background-color: #4da580;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #398d6c;
+}
+
+.header {
+    width: 100%; /* Full width */
+    height: 15%; /* Height of the header */
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Fixed at the top */
+    top: 0; /* Top of the viewport */
+    left: 0; /* Aligns to the left side */
+    z-index: 1000; /* Ensures it stays on top */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    position: absolute; /* Keeps the title from affecting layout */
+    top: 0;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 72px;
+    margin: 10px 0;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.home-button {
+    background: none;
+    border: none;
+    color: white; /* Adjust color to fit your design */
+    cursor: pointer;
+    font-size: 24px; /* Icon size, adjust as needed */
+    position: absolute;
+    right: 90vw; /* Position it from the left edge to make it clearly visible */
+    top: 20px; /* Position it from the top edge */
+    z-index: 1500; /* Make sure it's above all other elements */
+    padding: 10px; /* Padding around the icon */
+    width: 6vw;
+
+}
+
+.home-button:hover {
+    color: #4da580; /* Hover effect for color change */
+}
+
+.vocabulary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Centers the buttons and maintains space around them */
+    max-width: 960px; /* Adjust based on your design needs */
+    margin: 60px auto; /* Centers the grid horizontally and adds vertical space */
+}
+
+.vocab-button {
+    background-color: #71797E; /* Light pink background, adjust to your theme */
+    border: 3px solid #A9A9A9; /* Light border color */
+    width: 30%; /* Width relative to parent */
+    padding: 20px; /* Padding for spacing */
+    margin: 10px; /* Margin between buttons */
+    font-size: 48px; /* Font size for visibility */
+    font-family: serif;
+    color: white;
+    cursor: pointer; /* Cursor indicates button */
+    transition: transform 0.3s; /* Smooth transform on hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    aspect-ratio: 1/1; /* Makes the button square */
+    text-align: center; /* Centers text inside button */
+}
+
+.vocab-button:hover {
+    background-color: #A9A9A9; /* Slightly darker shade on hover */
+    transform: translateY(-5px); /* Raises the button to indicate interaction */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+
+
+#modalTitle, #questionText {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 20px 0;
+    align-self: center;
+    text-align: center;
+}
+
+#responseInput {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#question-button {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.question-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+#flashcardsContainer {
+    flex-grow: 1; /* Take up available space */
+    width: 100%; /* Full width of modal content */
+    overflow-y: auto; /* Allow scrolling */
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Position buttons on the far left and right */
+    margin-top: auto; /* Push to the bottom */
+}
+
+#generateMore, #study {
+    padding: 10px 20px;
+    margin: 10px;
+    flex: 1; /* Buttons take equal width */
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.flashcard {
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px; /* Less padding */
+    margin: 10px; /* Space between cards */
+    cursor: pointer; /* Indicates the element is clickable */
+    display: flex; /* Use flexbox to layout children side by side */
+    justify-content: space-between; /* Space between English and Arabic */
+    align-items: center; /* Align items vertically */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.2s; /* Smooth transform for interaction */
+}
+
+.flashcard:hover {
+    transform: translateY(-5px); /* Lift card on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.flashcard .english {
+    font-size: 22px; /* Larger font for English word */
+    color: #333; /* Dark grey color for text */
+    background-color: lightblue; /* Slight blue background */
+    padding: 16px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    flex-grow: 1; /* Takes available space */
+    text-align: center; /* Center text */
+}
+
+.flashcard .arabic {
+    font-size: 22px; /* Same font size for Arabic */
+    color: #333; /* Dark grey color for text */
+    background-color: lightcoral; /* Slight red background */
+    padding: 16px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    flex-grow: 1; /* Takes available space */
+    text-align: center; /* Center text */
+    direction: rtl; /* Right-to-left direction for Arabic text */
+}
+
+.loading-icon {
+    margin-left: 10px;
+    display: none; /* Hidden by default */
+    vertical-align: middle;
+}
+
+.loading-icon i {
+    color: #fff; /* White color to stand out on the button */
+}
+
+.new-topic-form {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 30vh;
+}
+
+.new-topic-form input {
+    padding: 8px 10px;
+    margin-right: 5px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.new-topic-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.new-topic-form button:hover {
+    background-color: #45a049;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.input-field {
+    margin: 10px 0;
+    padding: 8px;
+    width: 90%; /* Adjust based on your layout */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;  // This might not be necessary on the button itself but only on the icon
+}
+
+.icon-button i {
+    transition: transform 0.3s ease;
+    display: inline-block;  // This is crucial for transform properties to apply correctly
+}
+
+.icon-button:hover i {
+    background: none;  
+    transform: rotate(180deg);
+}
+
+.icon-button:hover {
+    background-color: white;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Changed to column to stack buttons vertically */
+    align-items: center;
+    margin-top: 20px;
+}
+
+#generateMore, #study {
+    padding: 10px 20px;
+    margin: 10px 0; /* Added margin for spacing between buttons */
+    flex: none; /* Removed flex to ensure buttons take their content width */
+    text-align: center; /* Ensure the text is centered */
+}
+
+#study {
+    background-color: #4da580;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+    transition: background-color 0.3s ease;
+}
+
+#study:hover {
+    background-color: #398d6c;
+}
+
+.flashcard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.audio-button {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.audio-button:hover {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+

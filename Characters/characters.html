@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="../icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI.rabic Characters</title>
+    <link rel="stylesheet" href="charactersStyles.css">
+</head>
+<body>
+    <div class="header">
+        <button onclick="location.href='../index.html';" class="home-button">
+            <i class="fas fa-home"></i>
+        </button>
+        <h1 class="title">AI.rabic Characters</h1>
+    </div>
+
+    <div class="main-menu" id="characterButtonsContainer">
+    <!-- Character buttons will be added here dynamically -->
+</div>
+
+
+    <div id="characterModal" class="modal">
+        <div class="modal-content">
+            <img id="characterImage" src="" alt="Character Image" style="float: left; width: 150px; height: 150px; margin-right: 20px;">
+            <div id="characterDescription"></div>
+            <input type="text" id="topicInput" placeholder="Enter topic or leave blank...">
+            <button onclick="startTalking()">Start Talking</button>
+        </div>
+    </div>
+
+    <script src="charactersScript.js"></script>
+</body>
+</html>
