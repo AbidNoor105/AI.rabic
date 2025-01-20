@@ -1,0 +1,331 @@
+
+
+
+button {
+    padding: 10px;
+    background-color: #4da580;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #398d6c;
+}
+
+
+.vocabulary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Centers the buttons and maintains space around them */
+    max-width: 100%; /* Adjust based on your design needs */
+    margin: 60px auto; /* Centers the grid horizontally and adds vertical space */
+}
+
+.vocab-button {
+    background-color: #57bd81;
+    border: 3px solid #A9A9A9;
+    width: 30%; /* Increase width for more space */
+    min-height: 250px;
+    padding: 20px;
+    margin: 10px;
+    font-size: calc(1vw + 12px); /* Dynamically adjust font size */
+    font-family: serif;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    word-wrap: break-word; /* Ensures text wraps properly */
+    word-break: break-word; /* Breaks long words */
+    white-space: normal; /* Allows text wrapping */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+
+
+.vocab-button:hover {
+    background-color: #4ba370;
+    transform: translateY(-16px);
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+
+
+#modalTitle, #questionText {
+    font-size: 48px;
+    font-weight: bold;
+    color: black;
+    margin: 20px 0;
+    align-self: center;
+    text-align: center;
+}
+
+#responseInput {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#question-button {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 64px;
+}
+
+.question-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Position buttons on the far left and right */
+    margin-top: auto; /* Push to the bottom */
+}
+
+#generateMore, #study {
+    padding: 10px 20px;
+    margin: 10px 0; /* Space between buttons */
+    flex: none; /* Prevent stretching */
+    text-align: center; /* Ensure text is centered horizontally */
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Vertically center text within the button */
+    justify-content: center; /* Horizontally center text within the button */
+    font-weight: bold; /* Make the text bold (if needed) */
+    font-size: 18px; /* Adjust the text size if necessary */
+    line-height: 1.5; /* Ensure proper text height */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4da580; /* Button background color */
+    color: white;
+    transition: background-color 0.3s;
+}
+
+#generateMore:hover, #study:hover {
+    background-color: #398d6c; /* Hover background color */
+}
+
+
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+#flashcardsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flashcard {
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between; /* Space between English and Arabic */
+    align-items: center; /* Align items vertically */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    width: 90%; /* Full width within container */
+    font-size: 30px; /* Adjusted font size for better readability */
+}
+
+.flashcard .english, .flashcard .arabic {
+    flex: 1; /* Each part takes equal space */
+    text-align: center; /* Center align text */
+    padding: 12px; /* Padding around text */
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border-radius: 5px; /* Rounded corners for the text blocks */
+}
+
+
+.flashcard .english {
+    background-color: lightblue; /* Light blue background for English part */
+}
+
+.flashcard .arabic {
+    background-color: lightcoral; /* Light coral background for Arabic part */
+    direction: rtl; /* Right-to-left text direction for Arabic */
+}
+
+.audio-button {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 10px; /* Ensure the button has adequate spacing */
+    color: #4da580; /* Style color to match your button color scheme */
+}
+
+.audio-button:hover {
+    color: #398d6c; /* Darker shade on hover */
+}
+
+
+.loading-icon {
+    margin-left: 10px;
+    display: none; /* Hidden by default */
+    vertical-align: middle;
+}
+
+.loading-icon i {
+    color: #fff; /* White color to stand out on the button */
+}
+
+.new-topic-form {
+    margin-top: 40px; /* Increased top margin for spacing */
+    margin-bottom: 40px; /* Add consistent bottom margin */
+    text-align: center; /* Center-align the form elements */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack input and button vertically */
+    align-items: center; /* Center-align input and button */
+    gap: 20px; /* Add consistent spacing between input and button */
+}
+
+.new-topic-form input {
+    padding: 12px 16px; /* Increased padding for better appearance */
+    border: 2px solid #ccc; /* Ensure border consistency */
+    border-radius: 5px; /* Increase for more rounded corners */
+    width: 100%; /* Full width of container */
+    max-width: 500px; /* Limit maximum width for better readability */
+    font-size: 16px; /* Adjusted font size for better legibility */
+    background-color: #f9f9f9; /* Light background for the input */
+}
+
+.new-topic-form button {
+    padding: 12px 20px; /* Increased padding for better click target */
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px; /* Adjust font size for consistency */
+    font-weight: bold; /* Make the text bold */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    text-transform: uppercase; /* Optional: Make the text uppercase */
+    padding-bottom: 64px;
+}
+
+.new-topic-form button:hover {
+    background-color: #45a049; /* Slightly darker shade on hover */
+}
+
+
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field {
+    margin: 10px 0;
+    padding: 8px;
+    width: 90%; /* Adjust based on your layout */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;  // This might not be necessary on the button itself but only on the icon
+}
+
+.icon-button i {
+    transition: transform 0.3s ease;
+    display: inline-block;  // This is crucial for transform properties to apply correctly
+}
+
+.icon-button:hover i {
+    background: none;  
+    transform: rotate(180deg);
+}
+
+.icon-button:hover {
+    background-color: white;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Changed to column to stack buttons vertically */
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+
+#study {
+    background-color: #4da580;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 10%;
+    transition: background-color 0.3s ease;
+}
+
+#study:hover {
+    background-color: #398d6c;
+}
+
+
+
+

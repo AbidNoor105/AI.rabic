@@ -1,0 +1,108 @@
+
+button {
+    padding: 10px;
+    background-color: #4da580;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #398d6c;
+}
+
+/* General Styling for Courses Section */
+.courses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds spacing between rows */
+    margin: 20px auto;
+    width: 80%; /* Adjust width of the container */
+}
+
+.course-row {
+    background-color: #f9f9f9; /* Light gray background for rows */
+    border: 1px solid #ddd; /* Subtle border for each row */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Internal padding for content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.course-row:hover {
+    transform: translateY(-5px); /* Slightly lifts the row */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Adds more depth on hover */
+}
+
+/* Titles and Descriptions */
+.course-row h3 {
+    font-size: 24px; /* Title font size */
+    color: #4da580; /* Green color for titles */
+    margin-bottom: 10px; /* Space below the title */
+}
+
+.course-row p {
+    font-size: 18px; /* Slightly smaller text for details */
+    color: #333; /* Dark gray for readability */
+    margin: 5px 0; /* Spacing between paragraphs */
+}
+
+
+
+/* Style adjustments for the content area */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Styles for input fields */
+input[type="number"] {
+    color: black;
+    padding: 10px;
+    margin: 10px;
+    width: 100%; /* Full width within the container */
+    max-width: 300px; /* Maximum width for better appearance on larger screens */
+    border: 2px solid #4da580; /* Border color matching the button */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Larger font size for better readability */
+}
+
+/* Adjustments for the button */
+button {
+    padding: 12px 20px;
+    font-size: 16px; /* Larger text for readability */
+    width: 50%; /* Half-width of the container */
+    max-width: 150px; /* Maximum width */
+    margin-top: 20px; /* Space above the button */
+}
+
+/* Style for displaying Ayah text */
+#ayahText {
+    color: black; /* White color for the text */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 100%; /* Full width to match inputs */
+    max-width: 600px; /* Consistent with input max-width */
+    text-align: center; /* Center align the text */
+    font-size: 18px; /* Larger font for emphasis */
+}
+
+/* Enhancements for responsiveness */
+@media (max-width: 768px) {
+    .content {
+        width: 95%; /* More width on smaller screens */
+    }
+
+    button, input[type="number"] {
+        width: 90%; /* Adjust width for small screens */
+    }
+}
+
+
+

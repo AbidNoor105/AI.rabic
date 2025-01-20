@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/15d20ac4-4619-4cab-9056-e1712357f94c/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/abidtest",
+    "appService.deploySubpath": "."
+}
